@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import Fade from 'react-reveal/Fade';
 
 
 function Section({
@@ -10,6 +11,7 @@ leftBtnText,
 rightBtnText,}) {
   return (
     <Wrap bgImage = {backgroundImg}>
+        <Fade bottom>
         <ItemText>
             <h1>{title}
             </h1>
@@ -17,8 +19,11 @@ rightBtnText,}) {
               {description}
             </p>
         </ItemText>
+        </Fade>
         <Buttons>
+        <Fade bottom>
         <ButtonGroup>
+       
         {leftBtnText &&  <LeftButton>
                 {leftBtnText}
             </LeftButton>}
@@ -28,6 +33,7 @@ rightBtnText,}) {
             </RightButton>}
             
         </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg"/>
         </Buttons>
        
@@ -87,6 +93,7 @@ const ItemText = styled.div`
 const Wrap = styled.div`
     width:100vw;
     height:100vh;
+    z-index:10;
     background-image: ${props=>`url('/images/${props.bgImage}')`};
     background-size: cover;
     background-position:center;
